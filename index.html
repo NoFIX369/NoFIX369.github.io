@@ -6,7 +6,7 @@
 
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { width: 100%; height: 100%; background: #000; overflow-x: hidden; }
+    body, html { width: 100%; min-height: 100%; background: #000; }
 
     /* Фон-слайдер */
     .bg {
@@ -27,30 +27,27 @@
         100% { background-image: url('img5.jpg.png'); }
     }
 
-    /* Огромный логотип по центру */
-    .center {
-        position: fixed;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-        text-align: center;
-    }
-
+    /* Логотип в правом верхнем углу */
     .logo {
-        width: 85vw;          /* почти весь экран */
-        max-width: 1200px;    /* ограничение, чтобы не ломалось */
-        filter: drop-shadow(0 0 40px white); /* мягкое белое свечение */
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 600px; /* твой размер, не меняю */
+        max-width: 40vw;
+        z-index: 3;
+        filter: drop-shadow(0 0 25px white);
     }
 
-    /* Видео — полноразмерное */
-    .video-wrapper {
+    /* Контент ниже — чтобы можно было листать */
+    .content {
         position: relative;
-        margin-top: 100vh; /* чтобы видео было под фоном */
-        width: 100%;
-        background: #000;
         z-index: 4;
+        margin-top: 100vh; /* чтобы видео было после фона */
+        padding: 40px 0;
+        background: #000;
     }
 
+    /* Видео */
     .video {
         width: 100%;
         height: auto;
@@ -63,11 +60,9 @@
 
 <div class="bg"></div>
 
-<div class="center">
-    <img src="logo.png.png" class="logo">
-</div>
+<img src="logo.png.png" class="logo">
 
-<div class="video-wrapper">
+<div class="content">
     <video class="video" controls>
         <source src="video.mp4.mp4" type="video/mp4">
     </video>
