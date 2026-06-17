@@ -27,22 +27,30 @@
         100% { background-image: url('img5.jpg.png'); }
     }
 
-    /* Логотип в правом верхнем углу */
+    /* Огромное лого в правом верхнем углу + эффект плавного движения */
     .logo {
         position: fixed;
         top: 20px;
         right: 20px;
-        width: 600px; /* твой размер, не меняю */
-        max-width: 40vw;
+        width: 80vw;              /* ЕЩЁ БОЛЬШЕ */
+        max-width: 1400px;        /* Ограничение, чтобы не ломалось */
         z-index: 3;
-        filter: drop-shadow(0 0 25px white);
+        filter: drop-shadow(0 0 40px white);
+        animation: float 8s ease-in-out infinite;
+    }
+
+    /* Эффект "плывёт" */
+    @keyframes float {
+        0%   { transform: translate(0, 0); }
+        50%  { transform: translate(0, 15px); }
+        100% { transform: translate(0, 0); }
     }
 
     /* Контент ниже — чтобы можно было листать */
     .content {
         position: relative;
         z-index: 4;
-        margin-top: 100vh; /* чтобы видео было после фона */
+        margin-top: 100vh; /* видео появляется после фона */
         padding: 40px 0;
         background: #000;
     }
